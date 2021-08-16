@@ -1,0 +1,8 @@
+Kuliah di CCIT-FTUI dan PNJ di CCIT pernah ngoding bahasa JAVA, MySQL DB, bkin app kasir sederhana. bkin web HTML static pernah juga
+terus bkin web app pake JSF JSP, bkin mobile app android yg terintegrasi sama web app pake google app engine juga pernah.
+
+di PNJ kmren belajar Visual Basic, semster 4 kmren datawarehousing pakai PENTAHO dan postgreSQL.
+
+tapi semuanya itu aplikasi kelas dasar dan biasa aja, jadi gabisa dijadiin patokan skill.
+
+Terimakasih
