@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 8 Pengenalan VueJS No 2</title>
+  </head>
+  <body>
+    <div id="app">
+      <button onclick="vm.openForm()">Open Form</button>
+      <h1>{{`Nilai a : ${a}`}}</h1>
+      <h2>{{`Rata rata : ${b}`}}</h2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          a: 0,
+          b: 0,
+        },
+        methods: {
+          openForm: function (average) {
+            let arr = [];
+            for (let total = 0; total < 10; ) {
+              this.a = prompt("Masukan Nilai a");
+              arr.push(this.a);
+              total = parseInt(this.a) + parseInt(total);
+              this.a = total;
+            }
+
+            console.log(arr);
+            this.b = parseFloat(this.a / arr.length);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
