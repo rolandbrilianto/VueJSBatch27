@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 13 Vue Components</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+
+
+
+      <form @submit.prevent="submitForm()">
+        <p v-if="errors.length">
+            <b>Please correct the following errors</b>
+            <ul>
+                <li v-for="error in errors">{{ error }}</li>
+            </ul>
+        </p>
+        <label>Nama :</label>
+        <input type="text" name="name" ref="name" v-model="name" :disabled="statusTombol == 'Upload'">
+        <label>Alamat : </label>
+        <textarea type="text" name="address" ref="address" v-model="address" :disabled="statusTombol == 'Upload'"></textarea>
+        <label>Nomer HP : </label>
+        <input type="text" name="no_hp" ref="no_hp" v-model="no_hp" :disabled="statusTombol == 'Upload'">
+        <div v-if="statusTombol == 'Submit'">
+            <input type="submit" value="SUBMIT" style="margin-top: 5px; min-width: 227px;">
+        </div>
+        <div v-else-if="statusTombol == 'Update'">
+            <input type="button" value="UPDATE" @click="updateMember(editMemberId)" style="margin-top: 5px; min-width: 227px;">
+            <input type="button" value="CANCEL" @click="clearForm()" style="min-width: 227px;">
+        </div>
+        <div v-else-if="statusTombol == 'Upload'">
+            <input type="file" name="photo_profile" ref="photo_profile">
+            <input type="button" value="UPLOAD" @click="submitPhoto(uploadFotoId)" style="min-width: 227px;">
+            <input type="button" value="CANCEL" @click="clearForm()" style="min-width: 227px;">
+        </div>
+
+      </form>
+
+
+      <member-component
+      :members="members"
+      @name="name= $event"
+      @address="address=$event"
+      @no_hp="no_hp=$event"
+      @status-tombol="statusTombol=$event"
+      @edit-member-id="editMemberId=$event"
+      @upload-foto-id="uploadFotoId=$event">
+
+
+      </member-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="vue.js"></script>
+  </body>
+</html>
